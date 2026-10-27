@@ -1,0 +1,234 @@
+%% General definitions
+%\documentclass{article} %% Determines the general format.
+\documentclass[10pt,a4paper]{article}
+\usepackage{a4wide} %% paper size: A4.
+\usepackage[utf8]{inputenc} %% This file is written in UTF-8.
+%% Some editors on Windows cannot save files in UTF-8.
+%% If there is a problem with special characters not showing up
+%% correctly, try switching "utf8" to "latin1" (ISO 8859-1).
+\usepackage[T1]{fontenc} %% Format of hte resulting PDF file.
+\usepackage{fancyhdr} %% Package to create a header on each page.
+\usepackage{lastpage} %% Used for "Page X of Y" in the header.
+%% For this to work, you have to call pdflatex twice.
+\usepackage{enumerate} %% Used to change the style of enumerations (see below).
+
+\usepackage{amssymb} %% Definitions for math symbols.
+\usepackage{amsmath} %% Definitions for math symbols.
+\usepackage{amsthm}
+\usepackage{amsfonts}
+\usepackage{mathtools}
+
+\usepackage[english]{babel}
+
+\usepackage{graphicx}
+\usepackage{hyperref}
+\setlength{\parindent}{0cm}
+
+%\usepackage[left=2.00cm, right=2.00cm, top=2.00cm, bottom=2.00cm ]{geometry}
+
+\newtheorem*{zz*}{t.s}
+\newtheorem*{theorem*}{Theorem}
+\newtheorem*{claim*}{claim}
+\newtheorem{claim}{Behauptung}
+\newtheorem*{prop*}{Propsition}
+\newtheorem*{lemma*}{Lemma}
+\newtheorem{lemma}{Lemma}
+
+%\title{Lineare Algebra Serie 7}
+\date{\today}
+
+
+\usepackage{tikz}  %% Pagacke to create graphics (graphs, automata, etc.)
+\usepackage{tikz-cd} %%commutativ system
+\usetikzlibrary{automata} %% Tikz library to draw automata
+\usetikzlibrary{arrows}   %% Tikz library for nicer arrow heads
+
+
+%% Left side of header
+\lhead{\course\\\semester\\Serie \homeworkNumber}
+%% Right side of header
+\rhead{\authorname\\Page \thepage\ of \pageref{LastPage}}
+%% Height of header
+\usepackage[headheight=36pt]{geometry}
+%% Page style that uses the header
+\pagestyle{fancy}
+
+\newcommand{\authorname}{Ken Walzer}
+\newcommand{\semester}{FS 2023}
+\newcommand{\course}{Algebraic number Theory}
+\newcommand{\homeworkNumber}{11}
+\newcommand{\Vn}{V_{\mathbb{P}^n}}
+\newcommand{\RR}{\mathbb{R}}
+\newcommand{\QQ}{\mathbb{Q}}
+\newcommand{\ZZ}{\mathbb{Z}}
+\newcommand{\PP}{\mathbb{P}}
+\newcommand{\A}{\mathbb{A}}
+\newcommand{\OO}{\mathcal{O}}
+\newcommand{\kk}{\mathbf{k}}
+\newcommand{\aId}{\mathfrak{a}}
+
+\begin{document}
+	
+	\section*{Aufgabe 1}
+	\begin{zz*}
+		The $7th$ cyclotomic field has a trivial classgroup.
+	\end{zz*}
+	\begin{proof}
+		Let $p = 7$ and let $K = \QQ[T]/(\Phi_p\QQ[T])$ be the $7$-th cyclotomic field. Since $\zeta\in \ZZ_K$  is a primitive element of $K/\QQ$we get $K = \QQ(\zeta).$ Fruthermore by Lemma 3.26 it holds that $\ZZ_K = \ZZ[\zeta].$ Since $p$ is prime, it holds that $\Phi_p$ is a monic irreducible Polynomial in $\QQ[T],$ where a previous Lemma implies that $\Phi_p = min_{K/\QQ}(\zeta),$ thus $[K: \QQ] = 7$ and $(1, \zeta,\dots, \zeta^{p-1})$ form a $\QQ$-Basis of the $\QQ$-Vector space $K.$ Furthermore $(1, \zeta,\dots, \zeta^{p-1})$ forms a $\ZZ$-Basis  of The $\ZZ$-Modul $\ZZ_K.$ Then since $[\ZZ_K:\ZZ[\zeta]] = 1,$ the assumptions of Satz 2.9 are satsified. Then $\triangle_p = +-p^{p-2}\equiv 0 \pmod{p}.$ \vspace{0.2cm}
+		
+		Now let $I$ be a sub$\ZZ_K$-Modul of $K.$ ($K = Quot(\ZZ_K)$). Then there exists $y_1,\dots, y_N\in K,$ where $N<p,$ such that
+		\[I = y_1\ZZ_K+\cdots y_N\ZZ_K.\]
+		
+		Now we want to show that there exists a $a\in K:$ such that $a\ZZ_K = I.$
+		
+		(Then we can find a $b\in\ZZ,$ such that $ab\in \ZZ_K,$ which would imply that $I$ is a principle ideal, hence $\ZZ_K$ would be A principle ideal domain and we could conclude.)
+		
+		But, sorry Alessio. I have no idea how I can do that.
+	\end{proof}
+	\pagebreak
+	
+	\section*{Aufgabe 2}
+	Let $m\in \mathbb{N}$ and let $\delta_1,\dots, \delta_m> 0,$ such that $\delta_1 \cdots \delta_m = 1.$ Further let $A = (a_{i,j})_{i,j}\in Mat_{m}(\RR),$ where $det(A)\in \{-1,1\}.$
+	\begin{zz*}
+		There exists a $(x_1,\dots x_m)\in \ZZ^m\setminus\{0\},$ such that
+		\[\left|\sum_{j=1}^ma_{ij}x_j\right|< \delta_i,\]
+		for each $i\in \{1, \dots, m\}.$
+	\end{zz*}
+	\begin{proof}
+		We define
+		\[S = \left\{(x_1, \dots, x_m)\in \RR^4: \left|\sum_{i=1}^{m}a_{ij}x_j\right| \leq \delta_i \text{ for each } i\in \{1,\dots, m\}\right\}\subseteq \RR^4.\]
+		Then for any $x = (x_1,\dots, x_m)\in \RR^4,$ the following equivalences hold
+		\begin{align*}
+			\left|\sum_{i=1}^{m}a_{ij}x_j\right| \leq \delta_i \text{ for each } i\in \{1,\dots, m\} &\Leftrightarrow \left| (A\cdot x)_i\right| \leq \delta_i \text{ for each } i\in \{1,\dots, m\}\\
+			&\Leftrightarrow (A\cdot x)_i \in [-\delta_i, \delta_i] \text{ for each } i\in \{1,\dots, m\}
+		\end{align*}
+		where $(A\cdot x)_i$ is the $i$-th coordinate of $A\cdot x\in \RR^4.$
+		
+		Now let $L: \RR^4\to \RR^4$ be a linear map, given by $x\mapsto A\cdot x.$ Then $L$ is an automorphism on $\RR^4,$ ($A\in Gl_n(\RR^4)$) and the above equivalence implies that
+		\[S = L^{-1}\left(U\right), \text{ where } U = \prod_{i=1}^{m}[-\delta_i, \delta_i]\]
+		Then it holds that $\mathrm{vol}(U) = \prod_{i=1}^{m}(2\delta_i) = 2^m\prod_{i=1}^{m}(\delta_i) =2^m,$ since $\prod_{i=1}^{m}(\delta_i) = 1$ by assumption.
+		
+		Any linear automorphism on $\RR^4$ is bounded and therefore continuous. Moreover, one can see that the partial derivatives of $L^{-1}$ correspond to the column vectors of $A^{-1}$, which means that the partial derivatives are endomorphisms from $\RR^4$ to $\RR$ and are therefore continuous. So $L^{-1}$ is totally differentiable and in particular
+		\begin{equation*}
+			D_x L^{-1} = L^{-1} \text{ for every } x\in \RR^4,
+		\end{equation*}
+		so change of variable provides us that
+		\begin{equation}
+			\mathrm{vol}(S) = |\det(L^{-1})|\mathrm{vol}(U) = \underbrace{\left|\frac{1}{\det(A)}\right|}_{=1}2^m = 2^m.
+			\label{eq:not:korr1}
+		\end{equation}
+		
+		Then $U$ is by construction a compact set in $\RR^4$ (finite product of closed bounded sets). Since $L$ is an automorphism on $\RR^4$ and in particular an homeomorphism on $\RR^4,$ it implies that $S = L^{-1}(U)$ is compact as well.
+		\begin{claim*}
+			$S$ is convex and symmetric.
+		\end{claim*}
+		Since $\det(\ZZ^4) = 1,$ and \eqref{eq:not:korr1} together with above claim, Minkowski's lattcie point theorem implies the existence of a $x=(x_1,\dots, x_m)\in \ZZ^4\setminus\{0\},$ such that $x\in S$ and by deifinition of $S$ the statement is proven. \vspace{0.2cm}
+		
+		It is left to prove the claim.
+		
+		We claim that $U$ is convex. Indeed, let $x = (x_1, \dots, x_m),y = (y_1,\dots, y_m)\in U.$ Then without loss of generality we may assume that $|x_i|\geq |y_i|$ for each $i\in \{1, \dots, m\}.$ (otherwise replace $x_i$ with $y_i$ in the following) Then let $\lambda\in [0,1].$ For each $i\in \{1,\dots, m\}$ it holds that
+		\[|(\lambda x + (1-\lambda)y)_i| \leq \lambda |x_i| + (1-\lambda) |y_i| \leq \lambda |x_i| + (1-\lambda) |x_i| = |x_i|\leq \delta_i,\]
+		so by construction of $U,$ we get $\lambda x + (1-\lambda)y\in U,$ thus $U$ is convex.  
+		
+		Now, let $x,y \in S$ and $\lambda\in [0,1].$ It holds that $L(x), L(y)\in U$ and by linearity of $L^{-1},$ we get that
+		\[\lambda x+ (1-\lambda) y = \lambda L^{-1}(L(x)) + (1-\lambda)L^{-1}(L(y)) = L^{-1}(\underbrace{\lambda L(x) + (1-\lambda) L(y)}_{\in U\text{ by convexity of } U}) \in L^{-1}(U) = S,\]
+		so convexity of $S$ follows.
+		
+		Furthermore it holds that $L(-x)\in U,$ since for any $x = (x_1,\dots, x_m)\in U,$ it holds that $|-x_i| = |x_i| \leq \delta_i,$ thus $-x\in L^{-1}(U) = S$ hence, $S$ is symmetric and we can conclude.
+	\end{proof}
+	\pagebreak
+	
+	\section*{Aufgabe 3}
+	Let $p\geq 2$ be a prime number. Then let $a, b \in \ZZ$ such that $a^2+ b^2 \equiv -1 \pmod{p}.$ We denote
+	$v_1 = (p,0,0,0)^t, v_2 = (0,p, 0, 0)^t, v_3 = (a,b,1,0)^t, v_4 = (-b,a,0,1)^t\in \RR^4$ and 
+	\[\Lambda = v_1\ZZ + v_2\ZZ + v_3\ZZ + v_4\ZZ.\]
+	We denote $||\cdot ||_2$ for the euclidian norm on $\RR^4.$
+	
+\subsection*{(i)}
+	\begin{zz*}
+		$\Lambda\subseteq \RR^4$ is a lattice with $\mathrm{det}(\Lambda) = p^2.$
+	\end{zz*}
+	\begin{proof}
+		Definition 4.6 for $\Lambda \subseteq \RR^4$ beging a lattice is equivalent to $\Lambda\subseteq \RR^4$ being a free finitely generated $\ZZ$-modul with $\mathrm{rank}(\Lambda) = 4$ which is generated by a basis of $\RR^4.$ (a subgroup of $\RR^4$ must be abelian hence, has a $\ZZ$-modul structure on it and conversely a $\ZZ$-modul must be an abelian Group. Since generated from a basis of $\RR^4,$ it must be a subgroup of $\RR^4.$)
+		By construction $\Lambda$ is a finitely generated $\ZZ$-modul.
+		We consider the matrix 
+		\[
+		A = (v_1|v_2|v_3|v_4) = \begin{pmatrix}
+			p & 0 & a & -b \\
+			0 & p & b & a \\
+			0 & 0 & 1 & 0 \\
+			0 & 0 & 0 & 1 \\
+		\end{pmatrix}\in Mat_{4}(\RR)
+		\]
+		Then $A$ is a trianglularmatrix and we get $\det(A) = p^2.$ Since $p\neq0$ it follows that the columns $(v_1, v_2, v_3, v_4)$ are lineary independent hence, $(v_1, v_2,v_3, v_4)$ forms a basis of $\RR^4$ and it follows that $\Lambda\subseteq \RR^4$ forms a lattice. In particular, this shows that $\det(\Lambda) = p^2,$ since $\det(\Lambda) = \det(A)$ by definition and we can conclude. 
+	\end{proof}
+
+\subsection*{(ii)}
+	\begin{zz*}
+		It holds that $||v||_2^2\in p\ZZ$ for any $v\in \Lambda.$
+	\end{zz*}
+	\begin{proof}
+		Let $v\in \Lambda.$ Then there exist $z_1, z_2, z_3, z_4\in \ZZ$ such that
+		\[v = z_1v_1+z_2v_2 + z_3v_3 + z_4v_4.\]
+		Thus
+		\[
+		v = \begin{pmatrix}
+			z_1 p + z_3 a - z_4 b \\
+			z_2 p + z_3 b + z_4 a \\
+			z_3 \\
+			z_4 \\
+		\end{pmatrix},
+		\]
+		and we get
+		\begin{align*}
+			||v||_2^2 &= (z_1 p + z_3 a - z_4 b)^2 + (z_2 p + z_3 b + z_4 a)^2 + z_3^2 + z_4^2\\
+			&= z_1^2 p^2 + z_3^2 a^2 + z_4^2 b^2 + 2z_1 z_3 p a - 2z_1 z_4 p b - 2z_3 z_4 a b\\
+			&+ z_2^2 p^2 + z_3^2 b^2 + z_4^2 a^2 + 2z_2 z_3 p b + 2z_2 z_4 p a + 2z_3 z_4 a b + z_3^2 + z_4^2\\
+			&= \underbrace{(z_1^2 + z_2^2)p^2}_{\equiv 0 \pmod{p}} +\underbrace{p(2a(z_1z_3 + z_2z_4) + 2b(z_2z_3 - z_1z_4))}_{\equiv 0 \pmod{p}} +z_3(a^2 + b^2) + z_4^2(a^2 + b^2)+\dots\\
+			&\equiv z_3^2\underbrace{(a^2 + b^2)}_{\equiv -1\pmod{p}} + z_4^2\underbrace{(a^2 + b^2)}_{\equiv -1\pmod{p}}+z_3^2 + z_4^2 \pmod{p}\\
+			&\equiv -z_3^2 - z_4^2 + z_3^2 + z_4^2 \pmod{p}\equiv 0\pmod{p}.
+		\end{align*}
+	It follows that $||v||_2^2\in p\ZZ$ and we can conlcude.
+	\end{proof}
+\subsection*{(iii)}
+	\begin{zz*}
+		It holds that
+		\[\Lambda\cap \{x\in \RR^4: ||x||_2^2< 2p\}\supsetneq \{0\}.\]
+	\end{zz*}
+	\begin{proof}
+		We denote $S =  \{x\in \RR^4: ||x||_2^2< 2p\}.$ Then it holds by (i) that $2p = \sqrt{4\det(\Lambda)},$ and it follows by construction that $S = B_r(0),$ a ball with radius $r$ and centered at $0,$ where $r = \sqrt[4]{4\det(\Lambda)}.$
+		\begin{claim*}
+			$S = B_r(0)$ is symmetric and convex.
+		\end{claim*}
+		Since $S$ is open in $\RR^4,$ it is Lebesgue measurable and it holds that the volume of any ball with radius $r$ is $\frac{pi^2}{2}r^4.$ We get
+		\[vol(S) = \frac{pi^2}{2}r^4 = \frac{pi^2}{2}4\det(\Lambda) = \underbrace{\pi^2}_{>3^2> 2^3}2\det(\Lambda)> 2^4\det(\Lambda).\]
+		Together with claim, Minikowskis Latticepoint Theorem provides us the existence of a lattice point $v\in S\cap (\Lambda\setminus\{0\}).$ It follows that $\Lambda\cap \{x\in \RR^4: ||x||_2^2< 2p\}\supseteq \{v,0\} \supsetneq \{0\}$ and the statement implies. \vspace{0.1cm}
+		
+		It is left to prove the claim.
+		Let $x,y\in B_r(0).$ Then $||x||_2, ||y||_2< r.$  
+		
+		We define $m = \max\{||x||_2, ||y||_2\}< r.$ Then it holds for any $\lambda \in [0,1],$ that
+		\[||\lambda x + (1-\lambda)y||_2 \leq \lambda||x||_2 + (1-\lambda)||y||_2\leq \lambda m+ (1-\lambda)m = m<r\]
+		Thus $S$ is convex. Furthermore it holds that $||-x||_2 = ||x||_2< r$ so it is symmetric as well and we can conclude.
+	\end{proof}
+\subsection*{(iv)}
+	\begin{zz*}
+		There exist some integer $u_1, u_2, u_3, u_4\in \ZZ,$ such that $p = u_1^2+ u_2^2 + u_3^2 + u_4^2.$
+	\end{zz*}
+\begin{proof}
+	By definition it holds that $v_1, \dots v_4\in \mathbb{Z}^4,$ ($v_i$ from (i)) thus $\Lambda$ is a integer lattice , i.e. $\Lambda \subseteq \mathbb{Z}^4$ (as a set). Then by (iii) there exists a $u\in \Lambda$ such that $u\neq 0$ and $||u||_2^2 < 2p.$ Let $u = (u_1, u_2, u_3, u_4)\in \Lambda$ be the representation of $u$ in coordinates. Then $u_1, \dots ,u_4\in \mathbb{Z}$ since $\Lambda$ a integer lattice. And the arguments before imply that
+	\begin{equation}
+		0< ||u||_2^2 =  u_1^2 + u_2^2 + u_3^2 + u_4^2 < 2p
+		\label{eq:1ex3}
+	\end{equation}
+	Then by (ii) it holds that $||u||_2^2\in p\mathbb{Z}.$ Hence, there exists a $z\in \mathbb{Z},$ such that
+	$||u||_2^2 = u_1^2 + u_2^2 + u_3^2 + u_4^2 = pz.$ Together with (\ref{eq:1ex3}), we get that
+	\[0< pz< 2p.\]
+	Thus $0<z<2.$ But since $z$ a integer, this implies that $z = 1,$ which gives us
+	\[u_1^2 + u_2^2 + u_3^2 + u_4^2 = p\]
+	and we can conclude.
+\end{proof}
+	\pagebreak
+	
+	
+\end{document}

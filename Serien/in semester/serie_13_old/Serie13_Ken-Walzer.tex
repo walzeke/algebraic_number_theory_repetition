@@ -1,0 +1,146 @@
+%% General definitions
+%\documentclass{article} %% Determines the general format.
+\documentclass[10pt,a4paper]{article}
+\usepackage{a4wide} %% paper size: A4.
+\usepackage[utf8]{inputenc} %% This file is written in UTF-8.
+%% Some editors on Windows cannot save files in UTF-8.
+%% If there is a problem with special characters not showing up
+%% correctly, try switching "utf8" to "latin1" (ISO 8859-1).
+\usepackage[T1]{fontenc} %% Format of hte resulting PDF file.
+\usepackage{fancyhdr} %% Package to create a header on each page.
+\usepackage{lastpage} %% Used for "Page X of Y" in the header.
+%% For this to work, you have to call pdflatex twice.
+\usepackage{enumerate} %% Used to change the style of enumerations (see below).
+
+\usepackage{amssymb} %% Definitions for math symbols.
+\usepackage{amsmath} %% Definitions for math symbols.
+\usepackage{amsthm}
+\usepackage{amsfonts}
+\usepackage{mathtools}
+
+\usepackage[english]{babel}
+
+\usepackage{graphicx}
+\usepackage{hyperref}
+\setlength{\parindent}{0cm}
+
+%\usepackage[left=2.00cm, right=2.00cm, top=2.00cm, bottom=2.00cm ]{geometry}
+
+\newtheorem*{zz*}{t.s}
+\newtheorem*{theorem*}{Theorem}
+\newtheorem*{claim*}{claim}
+\newtheorem{claim}{Behauptung}
+\newtheorem*{prop*}{Propsition}
+\newtheorem*{lemma*}{Lemma}
+\newtheorem{lemma}{Lemma}
+\linespread{1.2}
+
+%\title{Lineare Algebra Serie 7}
+\date{\today}
+
+
+\usepackage{tikz}  %% Pagacke to create graphics (graphs, automata, etc.)
+\usepackage{tikz-cd} %%commutativ system
+\usetikzlibrary{automata} %% Tikz library to draw automata
+\usetikzlibrary{arrows}   %% Tikz library for nicer arrow heads
+
+
+%% Left side of header
+\lhead{\course\\\semester\\Serie \homeworkNumber}
+%% Right side of header
+\rhead{\authorname\\Page \thepage\ of \pageref{LastPage}}
+%% Height of header
+\usepackage[headheight=36pt]{geometry}
+%% Page style that uses the header
+\pagestyle{fancy}
+
+\newcommand{\authorname}{Ken Walzer}
+\newcommand{\semester}{FS 2023}
+\newcommand{\course}{Algebraic number Theory}
+\newcommand{\homeworkNumber}{12}
+\newcommand{\Vn}{V_{\mathbb{P}^n}}
+\newcommand{\RR}{\mathbb{R}}
+\newcommand{\real}{\mathrm{Re}}
+\newcommand{\imag}{\mathrm{Im}}
+\newcommand{\CC}{\mathbb{C}}
+\newcommand{\QQ}{\mathbb{Q}}
+\newcommand{\ZZ}{\mathbb{Z}}
+\newcommand{\PP}{\mathbb{P}}
+\newcommand{\A}{\mathbb{A}}
+\newcommand{\OO}{\mathcal{O}}
+\newcommand{\kk}{\mathbf{k}}
+\newcommand{\aId}{\mathfrak{a}}
+
+\begin{document}
+	
+\section*{Aufgabe 1}
+We want to compute the classgroup of $K = \QQ(\sqrt{2}).$ Then since $2 = 2$ in $\ZZ/4\ZZ,$ it holds that $\ZZ_K = \ZZ[\sqrt{2}].$
+\begin{claim*}
+	$\ZZ[\sqrt{2}]$ is a Euclidan ring. 
+\end{claim*}
+
+By claim it follows that $\ZZ[\sqrt{2}]$ principal ideal domain and therefore the class group of $K$ is trivial. We want to prove the claim.
+
+\begin{proof}
+	We define $N(a+b\sqrt{2}) = |a^2 - 2b^2|,$ for any $a,b\in \ZZ.$ Then one can see that $N:\ZZ[\sqrt{2}]\setminus \{0\}\to \mathbb{N}\cup \{0\},$ and that $N = | N_{K/\QQ} |.$ Then we know that $N_{K/\QQ}$ and the absolute value are multiplicative hence, it follows that $N$ is multiplicative. 
+	
+	Let $a, b\in \ZZ[\sqrt{2}].$ We want to  find some $q,r\in \ZZ[\sqrt{2}],$ such that
+	\[b = an+r, \text{ with } N(r)<N(a) \text{ or } r = 0.\]
+	
+	Since $\ZZ[\sqrt{2}]\subseteq \QQ(\sqrt{2}),$ thus $Q(\ZZ[\sqrt{2}])\subseteq Q(\QQ(\sqrt{2})) = \QQ(\sqrt{2}) = \QQ[\sqrt{2}],$ it holds that $\frac{b}{a}\in \QQ(\sqrt{2}),$ thus there exists some $r_1, r_2\in \QQ,$ such that
+	\[\frac{b}{a} = r_1 + r_2\sqrt{2}.\]
+	Then we define $n_1 = \lfloor r_1\rfloor, n_2 = \lfloor r_2\rfloor\in \ZZ$ and it holds that 
+	\[|r_1-n_1|\leq \frac{1}{2}, |r_2 - n_2|\leq \frac{1}{2}.\]
+	Furthermore, we define $n = n_1 + n_2\sqrt{2}\in \ZZ[\sqrt{2}]$ and $r = b-an.$
+	Then it holds that
+	\[an + r = an +b -an  = b\]
+	and moreover, that
+	\begin{align*}
+		N(r) &= N(b - an) = \left|N_{K/\QQ}(a)\right|\left|N_{K/\QQ}\left(\frac{b}{a} - n\right)\right|\\
+		&= \left|N_{K/\QQ}(a)\right|\left|(r_1 - n_1)^2 - (r_2 - n_2)^2\cdot 2\right|\\
+		&\leq \left|N_{K/\QQ}(a)\right|\left(\left|(r_1 - n_1)^2\right| + \left|(r_2 - n_2)^2\cdot 2\right|\right)\\
+		&\leq \left|N_{K/\QQ}(a)\right|\left(\left|\frac{1}{4}\right| + \left|\frac{1}{4}\cdot 2\right|\right)\\
+		&= N(a)\frac{3}{4}.
+	\end{align*}
+	So, if $r\neq 0,$ then $N(r)\neq 0$ and it holds that $N(r) \leq \underbrace{\frac{3}{4}N(a)}_{\neq0}<N(a)$ and we can conclude.
+\end{proof}
+Therefore $\ZZ[\sqrt{2}]$ is a Euclidean ring and therefore a principal ideal domain. It follows that $\mathrm{Cl}(K)$ is trivial.
+
+We want to compute the class group of $\QQ(\sqrt{3}).$ But this classgroup is trivial as well since $\ZZ[\sqrt{3}] = \ZZ_K$ since $3 = 3$ in $\ZZ/4\ZZ$ is euclidian as well.
+
+\begin{claim*}
+	$\ZZ[\sqrt{3}]$ is a euclidian ring. 
+\end{claim*}
+\begin{proof}
+	By doing the exact same steps as in claim before we get for any  $a = a_1 + a_2\sqrt{3}, b = b_1+b_2\sqrt{3}\in \ZZ[\sqrt{3}],$ that (and norm is modified to $N(a+b\sqrt{3}) = |a^2-3b^2$)
+	\[a = qb + r,\]
+	where 
+		\begin{align*}
+		N(t) &= |(r_1 - n)^2 - 3(r_2 - m)^2|\\
+		&\leq \max\{(r_1 - n)^2, 3(r_2 - m)^2\}\\
+		&\leq \frac{3}{4}
+	\end{align*}
+anjd by mutliplicativity of $N$ it follows that $N(r) = N(t)N(b) = \frac{3}{4}N(b) < N(b)$ if $r\neq 0$ (because then $b\neq 0$) and we can conclude.
+\end{proof}
+	
+\pagebreak
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section*{Aufgabe 2}
+	Let $p\geq 3$ be a prime number and let $\zeta$ be a root of unit of order $p.$
+	\begin{zz*}
+		$1+\zeta^p$ is a unit in $\ZZ[\zeta].$
+	\end{zz*}
+\pagebreak
+
+\section*{Aufgabe 3}
+
+	
+\pagebreak
+
+\section*{Aufgabe 4}
+\begin{zz*}
+	Any unit of $\ZZ[\sqrt{2}]$ has the form of $\pm(1+\sqrt{2})^{k}$ for an integer $k.$
+\end{zz*}
+
+	
+\end{document}

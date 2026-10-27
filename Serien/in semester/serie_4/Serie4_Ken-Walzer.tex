@@ -1,0 +1,144 @@
+%% General definitions
+%\documentclass{article} %% Determines the general format.
+\documentclass[10pt,a4paper]{article}
+\usepackage{a4wide} %% paper size: A4.
+\usepackage[utf8]{inputenc} %% This file is written in UTF-8.
+%% Some editors on Windows cannot save files in UTF-8.
+%% If there is a problem with special characters not showing up
+%% correctly, try switching "utf8" to "latin1" (ISO 8859-1).
+\usepackage[T1]{fontenc} %% Format of hte resulting PDF file.
+\usepackage{fancyhdr} %% Package to create a header on each page.
+\usepackage{lastpage} %% Used for "Page X of Y" in the header.
+%% For this to work, you have to call pdflatex twice.
+\usepackage{enumerate} %% Used to change the style of enumerations (see below).
+
+\usepackage{amssymb} %% Definitions for math symbols.
+\usepackage{amsmath} %% Definitions for math symbols.
+\usepackage{amsthm}
+\usepackage{amsfonts}
+\usepackage{mathtools}
+
+\usepackage[english]{babel}
+
+\usepackage{graphicx}
+\usepackage{hyperref}
+\setlength{\parindent}{0cm}
+
+%\usepackage[left=2.00cm, right=2.00cm, top=2.00cm, bottom=2.00cm ]{geometry}
+
+\newtheorem*{zz*}{z.Z}
+\newtheorem*{theorem*}{Theorem}
+\newtheorem*{claim*}{claim}
+\newtheorem{claim}{claim}
+\newtheorem*{prop*}{Propsition}
+\newtheorem*{lemma*}{Lemma}
+\newtheorem{lemma}{Lemma}
+
+%\title{Lineare Algebra Serie 7}
+\date{\today}
+
+
+\usepackage{tikz}  %% Pagacke to create graphics (graphs, automata, etc.)
+\usepackage{tikz-cd} %%commutativ system
+\usetikzlibrary{automata} %% Tikz library to draw automata
+\usetikzlibrary{arrows}   %% Tikz library for nicer arrow heads
+
+
+%% Left side of header
+\lhead{\course\\\semester\\Serie \homeworkNumber}
+%% Right side of header
+\rhead{\authorname\\Page \thepage\ of \pageref{LastPage}}
+%% Height of header
+\usepackage[headheight=36pt]{geometry}
+%% Page style that uses the header
+\pagestyle{fancy}
+
+\newcommand{\authorname}{Ken Walzer}
+\newcommand{\semester}{HS 2023}
+\newcommand{\course}{Algebraic number Theory}
+\newcommand{\homeworkNumber}{4}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%5
+\newcommand{\Vn}{V_{\mathbb{P}^n}}
+\newcommand{\RR}{\mathbb{R}}
+\newcommand{\real}{\mathrm{Re}}
+\newcommand{\imag}{\mathrm{Im}}
+\newcommand{\CC}{\mathbb{C}}
+\newcommand{\CCC}{\mathcal{C}}
+\newcommand{\QQ}{\mathbb{Q}}
+\newcommand{\ZZ}{\mathbb{Z}}
+\newcommand{\NN}{\mathbb{N}}
+\newcommand{\FF}{\mathbb{F}}
+\newcommand{\Mat}{\mathrm{Mat}}
+\newcommand{\Aut}{\mathrm{Aut}}
+\newcommand{\PP}{\mathbb{P}}
+\newcommand{\A}{\mathbb{A}}
+\newcommand{\OO}{\mathcal{O}}
+\newcommand{\kk}{\mathbf{k}}
+\newcommand{\aId}{\mathfrak{a}}
+\newcommand{\ii}{\sqrt{-1}}
+\newcommand{\GL}{\mathrm{GL}}
+\newcommand{\SL}{\mathrm{SL}}
+\newcommand{\orb}{\mathrm{orb}}
+\newcommand{\stab}{\mathrm{stab}}
+\newcommand{\ord}{\mathrm{ord}}
+\newcommand{\id}{\mathrm{id}}
+\linespread{1.2}
+
+\begin{document}
+	
+\section*{Aufgabe 1}
+	Let $F = \FF_2(T)$ and $K = F(T^{\frac{1}{2}}).$
+	\begin{zz*}
+		The following holds
+		\begin{itemize}
+			\item [(i)] $K/F$ is a field extension of degree $2.$
+			\item [(ii)] $Tr_{K/F}(x) = 0$ for any $x\in K.$
+			\item [(iii)] $\Delta_{K/F}(x_1, x_2) = 0$ for all $x_1, x_2\in K.$
+		\end{itemize}
+	\end{zz*}
+	\begin{proof}
+		Inhalt...
+	\end{proof}
+\pagebreak
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section*{Aufgabe 2}
+	Let $K$ be a number field and let $x\in \ZZ_K.$
+	\begin{zz*}
+		\[x\in \ZZ_K^*\Leftrightarrow N_{K/\QQ}(x) = \pm1.\]
+	\end{zz*}
+\pagebreak
+
+\section*{Aufgabe 3}
+	Let $m\geq 2$ be a square-free number with $m\equiv 2,3 \pmod{4}$ and $K = \QQ(\sqrt{m}).$	
+	
+	Let $x\in \ZZ_K^*\setminus{-1, +1}.$
+	\begin{zz*}
+		There exist $a,b\in \ZZ$ such that $b\neq0$ and
+		\[a^2 - mb^2 = 1.\]
+	\end{zz*}
+\pagebreak
+
+\section*{Aufgabe 4}
+	Let $K, L$ be number fields and let $\varphi: K\to L$ a ringisomorphism.
+	
+	\begin{zz*}
+		It holds that
+		\begin{itemize}
+			\item [(i)] $Tr_{K/\QQ}(x) = Tr_{L/\QQ}(\varphi(x))$ for each $x\in K.$
+			\item [(ii)] $\Delta_K = \Delta_L$
+		\end{itemize}
+	\end{zz*}
+	\begin{proof}
+		Inhalt...
+	\end{proof}
+	
+\section*{Aufgabe 5}
+	Let $m,n\in \ZZ\setminus\{0,1\}$ be squarefree integers.
+	\begin{zz*}
+		If $\QQ(\sqrt{m}), \QQ(\sqrt{n})$ are isomorphic as rings, then $m = n.$
+	\end{zz*}
+	\begin{proof}
+		Inhalt...
+	\end{proof}
+\end{document}
