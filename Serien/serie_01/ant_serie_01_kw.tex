@@ -10,7 +10,7 @@
 \usepackage{fancyhdr} %% Package to create a header on each page.
 \usepackage{lastpage} %% Used for "Page X of Y" in the header.
 %% For this to work, you have to call pdflatex twice.
-\usepackage{enumerate} %% Used to change the style of enumerations (see below).
+\usepackage{enumitem} %% Used to change the style of enumerations (see below).
 
 \usepackage{amssymb} %% Definitions for math symbols.
 \usepackage{amsmath} %% Definitions for math symbols.
@@ -26,7 +26,7 @@
 
 %\usepackage[left=2.00cm, right=2.00cm, top=2.00cm, bottom=2.00cm ]{geometry}
 
-\newtheorem*{zz*}{z.Z}
+\newtheorem*{zz*}{t.s}
 \newtheorem*{theorem*}{Theorem}
 \newtheorem*{claim*}{claim}
 \newtheorem{claim}{claim}
@@ -54,9 +54,9 @@
 \pagestyle{fancy}
 
 \newcommand{\authorname}{Ken Walzer}
-\newcommand{\semester}{HS 2024}
-\newcommand{\course}{Elliptic curve}
-\newcommand{\homeworkNumber}{5}
+\newcommand{\semester}{HS 2023}
+\newcommand{\course}{Algebraic number theory}
+\newcommand{\homeworkNumber}{1}
 \newcommand{\Zn}{\mathcal{Z}}
 \newcommand{\Vn}{V_{\mathbb{P}^n}}
 \newcommand{\RR}{\mathbb{R}}
@@ -87,19 +87,42 @@
 \begin{document}
 	
 	\section*{Aufgabe 1}
-	
+	\begin{zz*}
+		It holds that:
+		\begin{enumerate}[label = (\roman*)]
+			\item $\ZZ[i]\subseteq \CC$ is a subring
+			\item $\ZZ[i]$ forms a free abelian group with rank $2.$ and $\ZZ[i] = \ZZ+i\ZZ.$
+			\item Let $u\in \ZZ[i]^*$ be a unit. It holds that $|u| = 1.$
+			\item $\ZZ[i]^* = \{\pm1,\pm i\}.$
+			\item $5 = (2+i)(2-i)$
+			\item Let $a,b\in \ZZ[i],$ such that $3 = ab.$ Then $a$ or $b$ is a unit. In particular $3$ is irreducible in $\ZZ[i].$
+			\item $\ZZ[i]\cap \QQ = \ZZ.$
+		\end{enumerate}
+	\end{zz*}
+	\begin{proof}
+		content...
+	\end{proof}
 	\pagebreak
-	
+	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 	\section*{Aufgabe 2}
-	
+	\begin{zz*}
+		A Ring $R$ is noetherian, if and only if any ideal is finitely generated.
+	\end{zz*}
+	\begin{proof}
+		content...
+	\end{proof}
 	\pagebreak
-	
+	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 	\section*{Aufgabe 3}
+	\subsection*{(i)}
+	Let $I\subseteq \ZZ[i]$ be a non-zero ideal.
+	\begin{zz*}
+		It holds that $I$ is a free $\ZZ$-module of rank $2.$
+	\end{zz*}
 	
+	\subsection*{(ii)}
+	\begin{zz*}
+		It holds that $\ZZ[i]$ is noetherian.
+	\end{zz*}
 	\pagebreak
-	
-	\section*{Aufgabe 4}
-	
-	\pagebreak
-	
 \end{document}
