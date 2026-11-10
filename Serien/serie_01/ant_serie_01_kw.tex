@@ -129,13 +129,14 @@
 			\item Let $u\in \ZZ[i]^*.$ Then there exists a $a\in \ZZ[i]^*,$ such that $1 = ua.$ We note that the absolute value on $\CC$ forms a norm by definition 1.5 from script, furthermore is it is mulitplicative since Lemma 1.7 implies that any norm on a finite field extension is a product of field homomorphisms. Together with $x\mapsto x^2$ being an endomorphism, we get that
 			\[1 = (|ua|)^2= |u|^2|a|^2 = \underbrace{(\real(u)^2 + \imag(u)^2)}_{\in \ZZ}\underbrace{(\real(a)^2+\imag(a)^2)}_{\in \ZZ}\]
 			Since $\pm 1$ the only units in $\ZZ,$ this implies that $|u|^2 = \pm1$ by definition of the absolute value, it follows that $|u|^2=1,$ thus $|u| = 1.$
-			\item We consider the embedding $\ZZ[i]\simeq \ZZ^2\subseteq \RR\simeq \RR^2\simeq \CC.$ Which we can do since we have shown that $\ZZ[i]$ is a free $\ZZ-$ module of rank $2.$ Then we know by (iii) that $\ZZ[i]^*\subseteq \ZZ^2\partial B_{1}(0) = \{pm1, \pm i\}.$ Furthermore it holds that $(-1)^2, i(-i) = 1,$ thus equality follows. 
+			\item We consider the embedding $\ZZ[i]\simeq \ZZ^2\subseteq \RR\simeq \RR^2\simeq \CC.$ Which we can do since we have shown that $\ZZ[i]$ is a free $\ZZ-$ module of rank $2.$ (and structure theorem of finitely generated $\ZZ$-modules gives us, that $\ZZ[i]$ forms a lattice of dimension $2$) Then we know by (iii) that $\ZZ[i]^*\subseteq \ZZ^2\cap\partial B_{1}(0) = \{pm1, \pm i\}.$ Furthermore it holds that $(-1)^2, i(-i) = 1,$ thus equality follows. 
 			\item It holds that
 			\[(2+i)(2-i) = (4+1) + i\cdot 0 = 5\]
 			\item By the multiplicativity of the norm, it holds that
-			\[3 = N(3) = N(ab) = N(a)N(b)\in \ZZ\]
+			\[3 = |3| = |ab| = |a||b|\in \ZZ\]
+			(note that any norm in sense of the script is mutliplicative since a Lemma gives us that the norm can be written as a product of fieldhomomorphisms)
 			But we know that $3$ is a prime number and therefore irreducible. It follows that $N(a)$ or $N(b)$ is an unit.
-			\item Since $\ZZ\subseteq \ZZ[i], \QQ,$ the iclusion $\ZZ\subseteq \ZZ[i]\cap \QQ$ holds. Let $x\in \ZZ[i]\cap \QQ.$
+			\item Since $\ZZ\subseteq \ZZ[i], \QQ,$ the iclusion $\ZZ\subseteq \ZZ[i]\cap \QQ$ holds. Let $x\in \ZZ[i]\cap \QQ.$ Then there exists $a,b\in \ZZ,$ such that $x = a+bi.$ Then $bi = x-a\in \QQ.$ If $b\neq 0,$ this would imply $i\in \QQ$ which is absurd. Hence $x = a\in \ZZ$ The other inclusion follows which gives us the equality.
 		\end{enumerate}
 	\end{proof}
 	\pagebreak

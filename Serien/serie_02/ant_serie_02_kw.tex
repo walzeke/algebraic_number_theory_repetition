@@ -10,7 +10,7 @@
 \usepackage{fancyhdr} %% Package to create a header on each page.
 \usepackage{lastpage} %% Used for "Page X of Y" in the header.
 %% For this to work, you have to call pdflatex twice.
-\usepackage{enumerate} %% Used to change the style of enumerations (see below).
+\usepackage{enumitem} %% Used to change the style of enumerations (see below).
 
 \usepackage{amssymb} %% Definitions for math symbols.
 \usepackage{amsmath} %% Definitions for math symbols.
@@ -18,7 +18,7 @@
 \usepackage{amsfonts}
 \usepackage{mathtools}
 
-\usepackage[german]{babel}
+\usepackage[english]{babel}
 
 \usepackage{graphicx}
 \usepackage{hyperref}
@@ -82,23 +82,48 @@
 \newcommand{\stab}{\mathrm{stab}}
 \newcommand{\ord}{\mathrm{ord}}
 \newcommand{\id}{\mathrm{id}}
+\newcommand{\frnr}{\frac{3+4i}{5}}
 \linespread{1.2}
 
 \begin{document}
 	
 	\section*{Aufgabe 1}
-	
+	Let $\varphi = \frac{\sqrt{5} + 1}{2}.$
+	\begin{zz*}
+		\begin{enumerate}[label = (\roman*)]
+			\item $\varphi$ is integer.
+			\item $\varphi^{-1}$ is integer.
+			\item The ring $\ZZ[\varphi]$ is infinite.
+		\end{enumerate}
+	\end{zz*}
 	\pagebreak
 	
 	\section*{Aufgabe 2}
-	
+	We want to determine wheter $\frnr$ is integer over $\ZZ.$
 	\pagebreak
 	
 	\section*{Aufgabe 3}
-	
+	Let $K/F$ be a finite field extension.
+	\subsection*{(i)}
+	\begin{zz*}
+		$Tr_{K/F}\in End(K),$ where $K$ considered as $F$-vector space.
+	\end{zz*}
+	\subsection*{(ii)}
+	\begin{zz*}
+		$N_{K/F}:K\to K$ is mutliplicatve.
+	\end{zz*}
 	\pagebreak
 	
 	\section*{Aufgabe 4}
+	Let $p\geq 2$ be a prime number. and $\zeta = \exp\left(\frac{2\pi i}{p}\right).$
+	\subsection*{(i)}
+	\begin{zz*}
+		It holds that $\mathcal{B} = (1,\zeta\dots, \zeta^{p-2})$ forms a basis of $\QQ(\zeta)$ as A $\QQ$ vectorspace.
+	\end{zz*}
+	\subsection*{(ii)}
+	We want to determine $\Mat_{\varphi_{\zeta},\mathcal{B}}$
+	\subsection*{(iii)}
+	We want to determine $Tr_{\QQ(\zeta)/\QQ}(\zeta)$ and $N_{\QQ(\zeta)/\QQ}(\zeta)$
 	
 	\pagebreak
 	
