@@ -157,7 +157,13 @@
 		
 		Now let's assume that every ideal is finitely generated. Let $(I_n)_n\subseteq \mathcal{P}(R)$ be a nondecreasing sequence on ideals. Then we define
 		\[I = \bigcup_{k=0}^\infty I_k.\]
-		We claim that $I\subseteq R$ forms an ideal. Indeed , first we get $\emptyset\neq I_0\subseteq I.$ Then let $a,b\in I$ and $r\in R.$ There exists $k,l\in \NN$ such that $a\in I_k,b\in I_l.$ Without loss of generality we may assume that $k\geq l,$ and we get that $a-b,ra\in I_k\subseteq I$ by $I_k$ being an ideal. It follows that $I\subseteq R$ forms an ideal. By assumption, there exist $a_1,\dots, a_n\in I,$ that generate $I.$ Then for each $i\in \{1,\dots, n\},$ there exists a $k_i\in \NN,$ such that $a_i\in I_{k_i}.$
+		We claim that $I\subseteq R$ forms an ideal. Indeed , first we get $\emptyset\neq I_0\subseteq I.$ Then let $a,b\in I$ and $r\in R.$ There exists $k,l\in \NN$ such that $a\in I_k,b\in I_l.$ Without loss of generality we may assume that $k\geq l,$ and we get that $a-b,ra\in I_k\subseteq I$ by $I_k$ being an ideal. It follows that $I\subseteq R$ forms an ideal. By assumption, there exist $a_1,\dots, a_n\in I,$ that generate $I.$ Then for each $i\in \{1,\dots, n\},$ there exists a $k_i\in \NN,$ such that $a_i\in I_{k_i}.$ We define $k = \max\{k_1,\dots, k_n\}.$ By $(I_n)_n$ non decreasing, it follows that
+		\[I= (a_1,\dots, a_n) \subseteq I_{k_1}+\cdots + I_{k_n} = I_k.\]
+		By construction of $I,$ the other inclusion follows so we get $I_k = I.$
+		
+		Then it holds for any $n\in \NN,$ that 
+		\[I = I_k\subseteq I_{k+n} \subseteq I\]
+		Hence, $I_k = I_{n+k}$ thusthe sequence is stationary and we can deduce that $R$ is notherian and we can conclude.
 	\end{proof}
 	\pagebreak
 	%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -167,10 +173,23 @@
 	\begin{zz*}
 		It holds that $I$ is a free $\ZZ$-module of rank $2.$
 	\end{zz*}
+	\begin{proof}
+		Let $I\subseteq \ZZ[i]$ a non zero ideal. Since $I\subseteq \ZZ[i]$ it is a sub-$\ZZ$-module of $\ZZ[i]$ and by $\ZZ[i]$ being finitely generated, it follows that $I$ is finitely generated as well and that $\mathrm{rank}(I)\leq \mathrm{rank}(\ZZ[i]) = 2.$
+		
+		Let $z = a+bi\in I.$ then $a,b\in \ZZ.$ Since $I$ an ideal of $\ZZ[i],$ it holds that
+		\[\begin{split}
+			v_1 = az -biz = a^2  +abi +b^2-abi = a^2+b^2&\in I\\
+			v_2 = bz +aiz = ab + b^2i -ab +a^2i = i(a^2 + b^2)&\in I
+		\end{split}\]
+		We know that $(1,i)$ are $\ZZ$-linear indepdent. For $v = a^2+b^2,$ we have that $v\left(\ZZ + i\ZZ\right) = v\ZZ[i]\subseteq I,$ this gives us that $rank(I)\geq 2,$ so The equality follows and we can conclude. 
+	\end{proof}
 	
 	\subsection*{(ii)}
 	\begin{zz*}
 		It holds that $\ZZ[i]$ is noetherian.
 	\end{zz*}
+	\begin{proof}
+		By (i) and Aufgabe 2, the statemenet follows.
+	\end{proof}
 	\pagebreak
 \end{document}
