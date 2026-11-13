@@ -124,7 +124,11 @@
 	We want to determine wheter $\frnr$ is integer over $\ZZ.$
 	\bigskip
 	
-	We denote $\varphi = \frnr.$ Then it holds that $25\cdot \varphi^2 = 9 + 24i - 16 = -7 + 24i$
+	We denote $\varphi = \frnr.$ Then we define Then it holds that $\varphi^2 =\frac{9 + 24i - 16}{25} = \frac{-7 + 24i}{25}.$ Since $6\varphi = \frac{18+24i}{5},$ we get
+	\[5\varphi^2 - 6\varphi = \frac{-7 + 24i}{5} - \frac{18+24i}{5} = \frac{-25}{5} = -5\]
+	Thus for $P = 5X^2 - 6X + 5\in \ZZ[X],$ we get that $\varphi$ forms a root of $P.$ In particular, this implies that $\varphi$ is algebraic over $\QQ$ hence we can define a number field $K = \QQ(\varphi).$ Now determining whether $\varphi$ is integral over $\ZZ$ is equal to determining wheter $\varphi\in \ZZ_{K}.$
+	
+	Since $\varphi, \bar{\varphi}\notin \QQ$ are the only roots of $P,$ and since $\deg(P) = 2,$ we get that $P$ is irreducible over $\QQ.$ It follows that $\frac{1}{5}P$ forms the minimal polynomial of $\varphi$ in $\QQ.$ Since $5,6$ are coprime, it follows that $\frac{1}{5}P\notin \ZZ[X].$ Lemma 1.26 implies that $\varphi\notin \ZZ_{K}.$ thus $\varphi$ can not be integral over $\ZZ.$
 	\pagebreak
 	
 	\section*{Aufgabe 3}
