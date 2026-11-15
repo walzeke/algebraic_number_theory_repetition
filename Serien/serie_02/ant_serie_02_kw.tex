@@ -137,6 +137,9 @@
 	\begin{zz*}
 		$Tr_{K/F}\in End(K),$ where $K$ considered as $F$-vector space.
 	\end{zz*}
+	\begin{proof}
+		Let $x\in K$
+	\end{proof}
 	\subsection*{(ii)}
 	\begin{zz*}
 		$N_{K/F}:K\to K$ is mutliplicatve.
@@ -149,8 +152,32 @@
 	\begin{zz*}
 		It holds that $\mathcal{B} = (1,\zeta\dots, \zeta^{p-2})$ forms a basis of $\QQ(\zeta)$ as A $\QQ$ vectorspace.
 	\end{zz*}
+	\begin{proof}
+		Let $P$ be the minimal polynomial of $\zeta$ over $\QQ.$ Then we know that $P$ is cyclotomic polynomial $P = \Phi_p.$ Therefore
+		\[[\QQ(\zeta):\QQ] = \deg(P) = \varphi(p),\]
+		where $\varphi$ the euler's totient function. Since $p$ a prime number this even implies that $[\QQ(\zeta):\QQ] = p-1.$ By an algebra argument, it follows that
+		\[\mathcal{B} = (1,\zeta, \dots, \zeta^{p-2})\]
+		forms A basis of $\QQ(\zeta)$ over $\QQ.$
+	\end{proof}
 	\subsection*{(ii)}
 	We want to determine $\Mat_{\varphi_{\zeta},\mathcal{B}}$
+	It holds that
+	\[\Mat_{\varphi_{\zeta},\mathcal{B}} = \left(\begin{array}{cccccc}
+		\mid & \mid & \mid & \cdots & \mid & \mid\\
+		(\varphi_{\zeta}(1))_{\mathcal{B}} & (\varphi_{\zeta}(\zeta))_{\mathcal{B}} & (\varphi_{\zeta}(\zeta^2))_{\mathcal{B}} & \cdots & (\varphi_{\zeta}(\zeta^{p-3}))_{\mathcal{B}}& (\varphi_{\zeta}(\zeta^{p-2}))_{\mathcal{B}}\\
+		\mid & \mid & \mid & \cdots & \mid & \mid
+	\end{array}\right)\]
+	Then we know that $(\varphi_{\zeta}(1))_{\mathcal{B}} = (\zeta)_{\mathcal{B}}$ and $(\varphi_{\zeta}(\zeta^k))_{\mathcal{B}} = (\zeta^{k+1})_{\mathcal{B}}$ for all $k\in \{1,\dots, p-3\}.$ Then we know that $P = 1+X+\dots+ X^{p-1}\in \QQ[X]$ since $p$ is prime. Since $P(\zeta) = 0,$ it follows that
+	\[(\varphi_{\zeta}(\zeta^{p-2}))_{\mathcal{B}} = (\zeta^{p-1})_{\mathcal{B}} = (-1-\zeta-\cdots - \zeta^{p-2})\]
+	This implies that
+	\[\Mat_{\varphi_{\zeta},\mathcal{B}} = \begin{pmatrix}
+		0 & 0 & 0 & \cdots & 0 & -1\\
+		1 & 0 & 0 & \cdots & \vdots & -1\\
+		0 & 1 & 0 & \cdots & \vdots & -1\\
+		0 & 0 & 1 & \ddots & \vdots &-1\\
+		0 & 0 & \ddots & \ddots & 0 & -1\\
+		0 & \cdots & \cdots & 0 & 1 & -1
+	\end{pmatrix}\]
 	\subsection*{(iii)}
 	We want to determine $Tr_{\QQ(\zeta)/\QQ}(\zeta)$ and $N_{\QQ(\zeta)/\QQ}(\zeta)$
 	
